@@ -1,0 +1,19 @@
+﻿@model PeopleCarsTempData.Web.Models.AddCarViewModel
+
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3 well">
+        <h2>New Car for @Model.Person.FirstName @Model.Person.LastName</h2>
+        <form method="post" action="/home/addcar">
+            <input type="hidden" name="personId" value="@Model.Person.Id" />
+            <input type="text" name="make" placeholder="Make" class="form-control" />
+            <br />
+            <input type="text" name="model" placeholder="Model" class="form-control" />
+            <br />
+            <input type="text" name="year" placeholder="Year" class="form-control" />
+            <br />
+            <button class="btn btn-primary">Add Car</button>
+        </form>
+    </div>
+</div>
+

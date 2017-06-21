@@ -1,0 +1,34 @@
+﻿@using PeopleCarsTempData.Data
+@model PeopleCarsTempData.Web.Models.ViewCarsViewModel
+
+<div class="row">
+    <h2>Cars for @Model.Person.FirstName @Model.Person.LastName</h2>
+</div>
+<div class="row">
+    <a class="btn btn-primary" href="/home/addcar?personId=@Model.Person.Id">Add Car</a>
+</div>
+<div class="row" style="margin-top: 20px;">
+    <table class="table table-striped table-bordered">
+        <tr>
+            <th>Make</th>
+            <th>Model</th>
+            <th>Year</th>
+            <th>Delete</th>
+        </tr>
+        @foreach (Car car in Model.Cars)
+        {
+            <tr>
+                <td>@car.Make</td>
+                <td>@car.Model</td>
+                <td>@car.Year</td>
+                <td>
+                    <form method="post" action="/home/deletecar">
+                        <input type="hidden" name="carId" value="@car.Id" />
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+
+        }
+    </table>
+</div>
